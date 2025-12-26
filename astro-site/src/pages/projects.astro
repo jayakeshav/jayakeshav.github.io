@@ -1,0 +1,50 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+// Fetch repos at build time
+const res = await fetch("https://api.github.com/users/jayakeshav/repos");
+const repos = await res.json();
+
+// Keep only original repos, sorted by last update
+const projects = repos
+  .filter(repo => !repo.fork)
+  .sort(
+    (a, b) =>
+      new Date(b.updated_at).getTime() -
+      new Date(a.updated_at).getTime()
+  );
+---
+
+<BaseLayout title="Projects · Jaya Keshava Chandra Kotha">
+  <p>
+    Selected projects and research code. This page updates automatically
+    from my GitHub activity.
+  </p>
+
+    <div class="projects-grid">
+    {projects.map(repo => (
+        <div class="project-card">
+        <div class="project-title">
+            <a href={repo.html_url} target="_blank">
+            {repo.name}
+            </a>
+        </div>
+
+        {repo.description && (
+            <div class="project-description">
+            {repo.description}
+            </div>
+        )}
+
+        <div class="project-meta">
+            {repo.language && (
+            <span>● {repo.language}</span>
+            )}
+            <span>Updated {new Date(repo.updated_at).toLocaleDateString()}</span>
+        </div>
+        </div>
+    ))}
+    </div>
+
+
+</BaseLayout>
