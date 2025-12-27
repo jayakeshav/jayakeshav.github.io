@@ -1,0 +1,36 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><title>Research · Work · Jaya Keshava Chandra Kotha</title><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/src/styles/base.css"><link rel="stylesheet" href="/src/styles/header.css"><link rel="stylesheet" href="/src/styles/footer.css"><style>:global(.work-nav){display:flex;gap:18px;font-size:.9rem;margin-bottom:8px}:global(.work-nav a){color:var(--text-muted);position:relative;text-decoration:none}:global(.work-nav a:hover){color:var(--text-main)}:global(.work-nav a.active){color:var(--text-main);font-weight:500}:global(.work-nav a.active:after){content:"";position:absolute;left:0;bottom:-6px;width:100%;height:2px;background:var(--accent);border-radius:2px}
+</style></head> <body> <div class="page"> <!-- Main content --> <div class="page-content"> <header> <div class="site-identity"> <a href="/" class="site-name">
+Jaya Keshava Chandra Kotha
+</a> <div class="site-tagline">
+PhD Candidate · Computer Engineering · UC Irvine
+</div> </div> <nav> <a href="/" data-path="/">Home</a> <a href="/work" data-path="/work">Work</a> <a href="/notes" data-path="/notes">Notes</a> <a href="/teaching" data-path="/teaching">Teaching</a> <a href="/about" data-path="/about">About</a> </nav> </header> <hr>  <nav class="work-nav"> <a href="/work" data-work-path="/work">Overview</a> <a href="/work/research" data-work-path="/work/research">Research</a> <a href="/work/publications" data-work-path="/work/publications">Publications</a> <a href="/work/projects" data-work-path="/work/projects">Projects</a> </nav> <script type="module">const o=window.location.pathname;document.querySelectorAll(".work-nav a[data-work-path]").forEach(a=>{const t=a.dataset.workPath;o===t&&a.classList.add("active")});</script> <hr>  <h3>Research</h3> <p>
+My research explores runtime detection of microarchitectural attacks
+    that exploit hardware features such as speculative execution, cache
+    hierarchies, and branch prediction. I focus on detection mechanisms
+    that can operate on existing systems, particularly those that cannot
+    easily adopt new hardware or invasive software defenses.
+</p> <h3>Research threads</h3> <ul> <li> <strong>Runtime detection of transient execution attacks</strong><br>
+Leveraging hardware performance counters to identify malicious
+      behavior that has bypassed traditional mitigations.
+</li> <li> <strong>Performance counter semantics across architectures</strong><br>
+Understanding how counter behavior differs across Intel and ARM
+      platforms and how these differences affect detection reliability.
+</li> <li> <strong>Data-driven detection pipelines</strong><br>
+Designing feature representations and machine learning models that
+      operate on noisy, low-level hardware measurements.
+</li> </ul> <p>
+These research threads are supported by the publications and projects
+    described in the other sections of this Work area.
+</p>  </div> <!-- Footer always at bottom --> <footer class="site-footer"> <div class="footer-meta">
+© 2025 Jaya Keshava Chandra Kotha. All rights reserved.
+</div> <div class="footer-links"> <a href="https://scholar.google.com/citations?user=57O1ClYAAAAJ&hl=en" target="_blank" rel="noopener"> <img src="/icons/scholar.png" alt="Google Scholar">
+Google Scholar
+</a> <a href="https://orcid.org/0009-0004-0865-9990" target="_blank" rel="noopener"> <img src="/icons/orcid.png" alt="ORCID">
+ORCID
+</a> <a href="https://github.com/jayakeshav" target="_blank" rel="noopener"> <img src="/icons/github.png" alt="GitHub">
+GitHub
+</a> <a href="https://www.linkedin.com/in/jayakeshavachandrakotha/" target="_blank" rel="noopener"> <img src="/icons/linkedin.png" alt="LinkedIn">
+LinkedIn
+</a> <a href="/Jaya_Keshava_Chandra_Kotha.pdf" download> <img src="/icons/pdf.png" alt="PDF">
+Resume
+</a> </div> </footer> </div> <!-- Active navigation script --> <script type="module">const o=window.location.pathname;document.querySelectorAll("nav a[data-path]").forEach(t=>{const a=t.dataset.path;(o===a||a==="/work"&&o.startsWith("/work"))&&t.classList.add("active")});</script> </body> </html>

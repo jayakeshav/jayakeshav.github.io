@@ -1,0 +1,25 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><title>Notes · Jaya Keshava Chandra Kotha</title><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/src/styles/base.css"><link rel="stylesheet" href="/src/styles/header.css"><link rel="stylesheet" href="/src/styles/footer.css"><style>.note-entry{position:relative;display:flex;gap:16px;padding:1.2rem 0}.note-entry:before{content:"";position:absolute;left:6px;top:0;bottom:0;width:1px;background:var(--border-soft)}.note-marker{position:relative;width:14px;flex-shrink:0}.note-marker:before{content:"";position:absolute;top:6px;left:2px;width:10px;height:10px;background:#fff;border:2px solid var(--accent);border-radius:50%;z-index:1}.note-body{max-width:65ch}.note-title{font-size:1.05rem;font-weight:600;margin-bottom:.15rem}.note-date{font-size:.75rem;color:var(--text-muted);margin-bottom:.6rem}.note-content{line-height:1.65}.note-entry+.note-entry{margin-top:.4rem}.note-tags{margin-top:.8rem;display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}.note-tag{display:inline-flex;align-items:center;gap:4px;font-size:.7rem;color:var(--text-muted);background:#f3f4f6;border-radius:6px;padding:2px 8px}.tag-icon{font-weight:600;color:var(--accent);font-size:.75rem}.note-tag{opacity:.9}.note-tag:hover{opacity:1}
+</style></head> <body> <div class="page"> <!-- Main content --> <div class="page-content"> <header> <div class="site-identity"> <a href="/" class="site-name">
+Jaya Keshava Chandra Kotha
+</a> <div class="site-tagline">
+PhD Candidate · Computer Engineering · UC Irvine
+</div> </div> <nav> <a href="/" data-path="/">Home</a> <a href="/work" data-path="/work">Work</a> <a href="/notes" data-path="/notes">Notes</a> <a href="/teaching" data-path="/teaching">Teaching</a> <a href="/about" data-path="/about">About</a> </nav> </header> <hr>  <h1>Notes</h1> <p style="max-width: 60ch;">
+A place to record thoughts, questions, and observations as they arise.
+    Some are technical, others are simply reflections on science, research,
+    or the world more broadly.
+</p> <article class="note-entry"> <div class="note-marker"></div> <div class="note-body"> <div class="note-title"> Why Runtime Detection Still Matters </div> <div class="note-date"> Dec 25, 2025 </div> <div class="note-content"> <p>Runtime detection remains a critical capability in the presence of
+microarchitectural attacks that bypass static and compile-time defenses.</p>
+<p>This note explores why detection <em>after compromise</em> is still necessary,
+especially on systems that cannot be easily upgraded or patched.</p> </div> <div class="note-tags"> <span class="note-tag"> <span class="tag-icon">#</span>hardware-security </span><span class="note-tag"> <span class="tag-icon">#</span>runtime-detection </span> </div> </div> </article> </div> <!-- Footer always at bottom --> <footer class="site-footer"> <div class="footer-meta">
+© 2025 Jaya Keshava Chandra Kotha. All rights reserved.
+</div> <div class="footer-links"> <a href="https://scholar.google.com/citations?user=57O1ClYAAAAJ&hl=en" target="_blank" rel="noopener"> <img src="/icons/scholar.png" alt="Google Scholar">
+Google Scholar
+</a> <a href="https://orcid.org/0009-0004-0865-9990" target="_blank" rel="noopener"> <img src="/icons/orcid.png" alt="ORCID">
+ORCID
+</a> <a href="https://github.com/jayakeshav" target="_blank" rel="noopener"> <img src="/icons/github.png" alt="GitHub">
+GitHub
+</a> <a href="https://www.linkedin.com/in/jayakeshavachandrakotha/" target="_blank" rel="noopener"> <img src="/icons/linkedin.png" alt="LinkedIn">
+LinkedIn
+</a> <a href="/Jaya_Keshava_Chandra_Kotha.pdf" download> <img src="/icons/pdf.png" alt="PDF">
+Resume
+</a> </div> </footer> </div> <!-- Active navigation script --> <script type="module">const o=window.location.pathname;document.querySelectorAll("nav a[data-path]").forEach(t=>{const a=t.dataset.path;(o===a||a==="/work"&&o.startsWith("/work"))&&t.classList.add("active")});</script> </body> </html>
