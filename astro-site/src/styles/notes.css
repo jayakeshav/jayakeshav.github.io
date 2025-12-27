@@ -1,0 +1,102 @@
+/* ---------- Notes Feed ---------- */
+
+.note-entry {
+  position: relative;
+  display: flex;
+  gap: 16px;
+  padding: 1.2rem 0;
+}
+
+/* vertical line */
+.note-entry::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--border-soft);
+}
+
+/* dot */
+.note-marker {
+  position: relative;
+  width: 14px;
+  flex-shrink: 0;
+}
+
+.note-marker::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 2px;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* content area */
+.note-body {
+  max-width: 65ch;
+}
+
+/* title */
+.note-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.15rem;
+}
+
+/* date */
+.note-date {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 0.6rem;
+}
+
+/* content */
+.note-content {
+  line-height: 1.65;
+}
+
+/* spacing between entries */
+.note-entry + .note-entry {
+  margin-top: 0.4rem;
+}
+
+
+/* ---------- Tags ---------- */
+
+.note-tags {
+  margin-top: 0.8rem;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.note-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  background: #f3f4f6;
+  border-radius: 6px;
+  padding: 2px 8px;
+}
+
+.tag-icon {
+  font-weight: 600;
+  color: var(--accent);
+  font-size: 0.75rem;
+}
+.note-tag {
+  opacity: 0.9;
+}
+.note-tag:hover {
+  opacity: 1;
+}

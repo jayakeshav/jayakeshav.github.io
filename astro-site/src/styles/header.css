@@ -1,0 +1,64 @@
+/* =========================================================
+   Header & navigation styles
+   ========================================================= */
+
+header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.site-identity {
+  display: flex;
+  flex-direction: column;
+}
+
+.site-name {
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+
+.site-name:hover {
+  text-decoration: none;
+}
+
+.site-tagline {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* ---------- Navigation ---------- */
+
+nav {
+  display: flex;
+  gap: 18px;
+  font-size: 0.9rem;
+}
+
+nav a {
+  color: var(--text-muted);
+  position: relative;
+}
+
+nav a:hover {
+  color: var(--text-main);
+}
+
+/* ---------- Active nav item ---------- */
+
+nav a.active {
+  color: var(--text-main);
+  font-weight: 500;
+}
+
+nav a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+}

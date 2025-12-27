@@ -1,0 +1,32 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import "../styles/work.css";
+
+const { title = "Work", current = "" } = Astro.props;
+---
+
+<BaseLayout title={title}>
+  <nav class="work-nav">
+    <a href="/work" data-work-path="/work">Overview</a>
+    <a href="/work/research" data-work-path="/work/research">Research</a>
+    <a href="/work/publications" data-work-path="/work/publications">Publications</a>
+    <a href="/work/projects" data-work-path="/work/projects">Projects</a>
+  </nav>
+  <script>
+    const path = window.location.pathname;
+
+    document
+        .querySelectorAll(".work-nav a[data-work-path]")
+        .forEach(link => {
+        const target = link.dataset.workPath;
+
+        if (path === target) {
+            link.classList.add("active");
+        }
+        });
+  </script>
+
+
+<hr />
+
+<slot />

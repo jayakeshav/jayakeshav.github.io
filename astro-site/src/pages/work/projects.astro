@@ -1,5 +1,6 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import WorkLayout from "../../layouts/WorkLayout.astro";
+import "../../styles/projects.css";
 
 // Fetch repos at build time
 const res = await fetch("https://api.github.com/users/jayakeshav/repos");
@@ -15,36 +16,37 @@ const projects = repos
   );
 ---
 
-<BaseLayout title="Projects · Jaya Keshava Chandra Kotha">
+<WorkLayout title="Projects · Work · Jaya Keshava Chandra Kotha" 
+current="projects">
+  <h1>Projects</h1>
+
   <p>
     Selected projects and research code. This page updates automatically
     from my GitHub activity.
   </p>
 
-    <div class="projects-grid">
+  <div class="projects-grid">
     {projects.map(repo => (
-        <div class="project-card">
+      <div class="project-card">
         <div class="project-title">
-            <a href={repo.html_url} target="_blank">
+          <a href={repo.html_url} target="_blank">
             {repo.name}
-            </a>
+          </a>
         </div>
 
         {repo.description && (
-            <div class="project-description">
+          <div class="project-description">
             {repo.description}
-            </div>
+          </div>
         )}
 
         <div class="project-meta">
-            {repo.language && (
-            <span>● {repo.language}</span>
-            )}
-            <span>Updated {new Date(repo.updated_at).toLocaleDateString()}</span>
+          {repo.language && <span>● {repo.language}</span>}
+          <span>
+            Updated {new Date(repo.updated_at).toLocaleDateString()}
+          </span>
         </div>
-        </div>
+      </div>
     ))}
-    </div>
-
-
-</BaseLayout>
+  </div>
+</WorkLayout>
