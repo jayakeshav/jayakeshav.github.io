@@ -21,4 +21,4 @@ GitHub
 LinkedIn
 </a> <a href="/Jaya_Keshava_Chandra_Kotha.pdf" download> <img src="/icons/pdf.png" alt="PDF">
 Resume
-</a> </div> </footer> </div> <script type="module">const o=window.location.pathname;document.querySelectorAll("nav a[data-path]").forEach(t=>{const a=t.dataset.path;(o===a||a==="/work"&&o.startsWith("/work"))&&t.classList.add("active")});</script> </body> </html>
+</a> </div> </footer> </div> <script type="module">const r=t=>t?t.endsWith("/")&&t!=="/"?t.slice(0,-1):t:"/",e=r(window.location.pathname);document.querySelectorAll("nav a[data-path]").forEach(t=>{const a=r(t.dataset.path);if(e===a){t.classList.add("active");return}a==="/work"&&e.startsWith("/work/")&&t.classList.add("active")});</script> </body> </html>

@@ -44,18 +44,31 @@ const { title = "Jaya Keshava Chandra Kotha" } = Astro.props;
   </div>
 
   <script>
-    const path = window.location.pathname;
+    const normalize = (p) => {
+      if (!p) return "/";
+      return p.endsWith("/") && p !== "/" ? p.slice(0, -1) : p;
+    };
+
+    const currentPath = normalize(window.location.pathname);
 
     document.querySelectorAll("nav a[data-path]").forEach(link => {
-      const target = link.dataset.path;
+      const target = normalize(link.dataset.path);
 
+      // Exact match (e.g., /notes → Notes)
+      if (currentPath === target) {
+        link.classList.add("active");
+        return;
+      }
+
+      // Section match (e.g., /work/* → Work)
       if (
-        path === target ||
-        (target === "/work" && path.startsWith("/work"))
+        target === "/work" &&
+        currentPath.startsWith("/work/")
       ) {
         link.classList.add("active");
       }
     });
   </script>
+
 </body>
 </html>
