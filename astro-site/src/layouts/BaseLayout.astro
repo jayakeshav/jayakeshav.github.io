@@ -1,13 +1,9 @@
 ---
-/*
- Base layout for site-wide structure.
- Responsibilities:
- - Global typography & variables
- - Site identity header
- - Primary navigation
- - Footer
-*/
 import Footer from "../components/Footer.astro";
+import "../styles/base.css";
+import "../styles/header.css";
+import "../styles/footer.css";
+
 const { title = "Jaya Keshava Chandra Kotha" } = Astro.props;
 ---
 
@@ -17,21 +13,14 @@ const { title = "Jaya Keshava Chandra Kotha" } = Astro.props;
   <meta charset="UTF-8" />
   <title>{title}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="/src/styles/base.css" />
-  <link rel="stylesheet" href="/src/styles/header.css" />
-  <link rel="stylesheet" href="/src/styles/footer.css" />
 </head>
 
 <body>
   <div class="page">
-
-    <!-- Main content -->
     <div class="page-content">
       <header>
         <div class="site-identity">
-          <a href="/" class="site-name">
-            Jaya Keshava Chandra Kotha
-          </a>
+          <a href="/" class="site-name">Jaya Keshava Chandra Kotha</a>
           <div class="site-tagline">
             PhD Candidate · Computer Engineering · UC Irvine
           </div>
@@ -51,12 +40,9 @@ const { title = "Jaya Keshava Chandra Kotha" } = Astro.props;
       <slot />
     </div>
 
-    <!-- Footer always at bottom -->
     <Footer />
-
   </div>
 
-  <!-- Active navigation script -->
   <script>
     const path = window.location.pathname;
 
