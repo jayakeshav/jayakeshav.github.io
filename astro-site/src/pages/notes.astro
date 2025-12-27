@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
+import MediumPosts from "../components/MediumPosts.astro";
 import "../styles/notes.css";
 
 // Load notes, exclude drafts, newest first
@@ -61,4 +62,6 @@ const notes = (await getCollection("notes"))
       </article>
     );
   })}
+  
+  <MediumPosts />
 </BaseLayout>
