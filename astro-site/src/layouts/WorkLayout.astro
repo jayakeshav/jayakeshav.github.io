@@ -2,31 +2,40 @@
 import BaseLayout from "./BaseLayout.astro";
 import "../styles/work.css";
 
-const { title = "Work", current = "" } = Astro.props;
+const { title = "Work" } = Astro.props;
 ---
 
 <BaseLayout title={title}>
+
+  <!-- Secondary navigation for Work section -->
   <nav class="work-nav">
     <a href="/work" data-work-path="/work">Overview</a>
     <a href="/work/research" data-work-path="/work/research">Research</a>
     <a href="/work/publications" data-work-path="/work/publications">Publications</a>
     <a href="/work/projects" data-work-path="/work/projects">Projects</a>
   </nav>
+
+  <!-- Secondary nav highlight logic -->
   <script>
-    const path = window.location.pathname;
+    const normalize = (p) => {
+      if (!p) return "/";
+      return p.endsWith("/") && p !== "/" ? p.slice(0, -1) : p;
+    };
+
+    const currentPath = normalize(window.location.pathname);
 
     document
-        .querySelectorAll(".work-nav a[data-work-path]")
-        .forEach(link => {
-        const target = link.dataset.workPath;
-
-        if (path === target) {
-            link.classList.add("active");
+      .querySelectorAll(".work-nav a[data-work-path]")
+      .forEach(link => {
+        const target = normalize(link.dataset.workPath);
+        if (currentPath === target) {
+          link.classList.add("active");
         }
-        });
+      });
   </script>
 
+  <hr />
 
-<hr />
+  <slot />
 
-<slot />
+</BaseLayout>
