@@ -33,9 +33,11 @@ const personSchema = {
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- JSON-LD structured data -->
-  <script type="application/ld+json">
-    {JSON.stringify(personSchema)}
-  </script>
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify(personSchema)}
+  ></script>
+
 </head>
 
 <body>
