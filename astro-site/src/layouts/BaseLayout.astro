@@ -4,8 +4,28 @@ import "../styles/base.css";
 import "../styles/header.css";
 import "../styles/footer.css";
 
-const { title = "Jaya Keshava Chandra Kotha" } = Astro.props;
 ---
+const { title = "Jaya Keshava Chandra Kotha" } = Astro.props;
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Jaya Keshava Chandra Kotha",
+  "url": "https://jayakeshav.github.io",
+  "jobTitle": "PhD Candidate",
+  "affiliation": {
+    "@type": "Organization",
+    "name": "University of California, Irvine"
+  },
+  "sameAs": [
+    "https://scholar.google.com/citations?user=57O1ClYAAAAJ&hl=en",
+    "https://orcid.org/0009-0004-0865-9990",
+    "https://github.com/jayakeshav",
+    "https://www.linkedin.com/in/jayakeshavachandrakotha/"
+  ]
+};
+---
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,6 +33,9 @@ const { title = "Jaya Keshava Chandra Kotha" } = Astro.props;
   <meta charset="UTF-8" />
   <title>{title}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script type="application/ld+json">
+    {JSON.stringify(personSchema)}
+  </script>
 </head>
 
 <body>
