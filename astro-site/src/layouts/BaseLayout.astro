@@ -4,7 +4,6 @@ import "../styles/base.css";
 import "../styles/header.css";
 import "../styles/footer.css";
 
----
 const { title = "Jaya Keshava Chandra Kotha" } = Astro.props;
 
 const personSchema = {
@@ -26,13 +25,14 @@ const personSchema = {
 };
 ---
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>{title}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- JSON-LD structured data -->
   <script type="application/ld+json">
     {JSON.stringify(personSchema)}
   </script>
@@ -43,7 +43,9 @@ const personSchema = {
     <div class="page-content">
       <header>
         <div class="site-identity">
-          <a href="/" class="site-name">Jaya Keshava Chandra Kotha</a>
+          <a href="/" class="site-name">
+            Jaya Keshava Chandra Kotha
+          </a>
           <div class="site-tagline">
             PhD Candidate · Computer Engineering · UC Irvine
           </div>
@@ -66,6 +68,7 @@ const personSchema = {
     <Footer />
   </div>
 
+  <!-- Active navigation script -->
   <script>
     const normalize = (p) => {
       if (!p) return "/";
@@ -77,21 +80,17 @@ const personSchema = {
     document.querySelectorAll("nav a[data-path]").forEach(link => {
       const target = normalize(link.dataset.path);
 
-      // Exact match (e.g., /notes → Notes)
+      // Exact match
       if (currentPath === target) {
         link.classList.add("active");
         return;
       }
 
-      // Section match (e.g., /work/* → Work)
-      if (
-        target === "/work" &&
-        currentPath.startsWith("/work/")
-      ) {
+      // Section match (e.g. /work/*)
+      if (target === "/work" && currentPath.startsWith("/work/")) {
         link.classList.add("active");
       }
     });
   </script>
-
 </body>
 </html>
