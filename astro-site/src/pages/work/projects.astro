@@ -2,51 +2,152 @@
 import WorkLayout from "../../layouts/WorkLayout.astro";
 import "../../styles/projects.css";
 
-// Fetch repos at build time
+// Hardcoded featured projects
+const featuredProjects = [
+  {
+    name: "ML Model Evaluator",
+    description: "Lightweight Feature-Fusion Architecture for Tabular Classification. Implements a Dual-Path Neural Network designed for tabular classification tasks where both absolute counts and ratio-based features are important. The architecture separates these two feature types into two experts and fuses them using unidirectional context transfer.",
+    html_url: "https://github.com/jayakeshav/ml_model_evaluator",
+    language: "Python",
+    updated_at: new Date().toISOString(),
+    featured: true
+  },
+  {
+    name: "ML Data Quality Profiler",
+    description: "Python tool to analyze dataset quality, identifying missing values, distribution skew, and label inconsistencies prior to model training.",
+    html_url: "https://github.com/jayakeshav/ml_data_quality_profiler",
+    language: "Python",
+    updated_at: new Date().toISOString(),
+    featured: true
+  },
+  {
+    name: "Dual Path Architecture",
+    description: "Advanced neural network architecture combining multiple expert pathways for improved classification performance on complex datasets.",
+    html_url: "https://github.com/jayakeshav/Dual_Path_Architecture",
+    language: "Python",
+    updated_at: new Date().toISOString(),
+    featured: true
+  },
+  {
+    name: "Activation Explainer",
+    description: "A minimal demo that visualizes and explains neural network layer activations using a Cloudflare Worker (AI passthrough), a small frontend UI, and a tiny Python helper to generate sample activation JSON.",
+    html_url: "https://github.com/jayakeshav/Activation_explainer",
+    language: "JavaScript",
+    updated_at: new Date().toISOString(),
+    featured: true
+  },
+  {
+    name: "Quick Link Copier",
+    description: "A lightweight Chrome/Edge browser extension that lets you quickly copy your most-used links (LinkedIn, GitHub, portfolio, email) from a simple popup. Perfect for speeding up job applications and form filling.",
+    html_url: "https://github.com/jayakeshav/web-autofill",
+    language: "JavaScript",
+    updated_at: new Date().toISOString(),
+    featured: true
+  },
+  {
+    name: "Adaptive Runtime Detection of Microarchitectural Attacks",
+    description: "Lightweight runtime detection system using hardware performance counters and machine learning to identify microarchitectural attacks across Intel and ARM platforms with minimal overhead.",
+    html_url: "NA",
+    language: "Python",
+    updated_at: new Date().toISOString(),
+    featured: true
+  },
+  {
+    name: "Cache Evaluation using Gem5",
+    description: "Analyzed cache configurations on x86 to study latency vs throughput trade-offs.",
+    html_url: "NA",
+    language: "Python",
+    updated_at: new Date().toISOString(),
+    featured: true
+  },
+  {
+    name: "FPGA Design using Verilog",
+    description: "Implemented basic CPU components and multiplexers for digital logic optimization.",
+    html_url: "NA",
+    language: "Verilog",
+    updated_at: new Date().toISOString(),
+    featured: true
+  },
+];
+
+// Fetch repos from GitHub at build time
 const res = await fetch("https://api.github.com/users/jayakeshav/repos");
 const repos = await res.json();
 
 // Keep only original repos, sorted by last update
-const projects = repos
+const githubProjects = repos
   .filter(repo => !repo.fork)
+  .filter(repo => !featuredProjects.some(fp => fp.html_url === `https://github.com/jayakeshav/${repo.name}`))
   .sort(
     (a, b) =>
       new Date(b.updated_at).getTime() -
       new Date(a.updated_at).getTime()
   );
+
+// Combine featured and GitHub projects
+const projects = [
+  ...featuredProjects,
+  ...githubProjects
+];
 ---
 
 <WorkLayout title="Projects · Work · Jaya Keshava Chandra Kotha" 
 current="projects">
   <h2>Projects</h2>
 
-  <p>
-    Selected projects and research code. This page updates automatically
-    from my GitHub activity.
-  </p>
-
-  <div class="projects-grid">
-    {projects.map(repo => (
-      <div class="project-card">
+  <h3>Featured Projects</h3>
+  <div class="featured-projects">
+    {featuredProjects.map(project => (
+      <div class="featured-project-item">
         <div class="project-title">
-          <a href={repo.html_url} target="_blank">
-            {repo.name}
-          </a>
+          {project.html_url === "NA" ? (
+            <span>{project.name}</span>
+          ) : (
+            <a href={project.html_url} target="_blank">
+              {project.name}
+            </a>
+          )}
         </div>
-
-        {repo.description && (
+        {project.description && (
           <div class="project-description">
-            {repo.description}
+            {project.description}
           </div>
         )}
-
         <div class="project-meta">
-          {repo.language && <span>● {repo.language}</span>}
-          <span>
-            Updated {new Date(repo.updated_at).toLocaleDateString()}
-          </span>
+          {project.language && <span>● {project.language}</span>}
         </div>
       </div>
     ))}
   </div>
+
+  {githubProjects.length > 0 && (
+    <>
+      <h3>Other Projects</h3>
+      <p>Additional projects from my GitHub activity.</p>
+      <div class="projects-grid">
+        {githubProjects.map(repo => (
+          <div class="project-card">
+            <div class="project-title">
+              <a href={repo.html_url} target="_blank">
+                {repo.name}
+              </a>
+            </div>
+
+            {repo.description && (
+              <div class="project-description">
+                {repo.description}
+              </div>
+            )}
+
+            <div class="project-meta">
+              {repo.language && <span>● {repo.language}</span>}
+              <span>
+                Updated {new Date(repo.updated_at).toLocaleDateString()}
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </>
+  )}
 </WorkLayout>

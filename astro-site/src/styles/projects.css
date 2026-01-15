@@ -1,4 +1,40 @@
 /* =========================================================
+   Featured Projects - List Format
+   ========================================================= */
+
+.featured-projects {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 24px;
+  margin-bottom: 48px;
+}
+
+.featured-project-item {
+  border-left: 3px solid var(--accent);
+  padding-left: 20px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.featured-project-item .project-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.featured-project-item .project-description {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-main);
+  margin-bottom: 12px;
+}
+
+.featured-project-item .project-meta {
+  gap: 8px;
+}
+
+/* =========================================================
    Projects grid & cards
    ========================================================= */
 
