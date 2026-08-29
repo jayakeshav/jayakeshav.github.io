@@ -9,30 +9,25 @@ import WorkLayout from "../../layouts/WorkLayout.astro";
   <h2>Research</h2>
 
   <p>
-    My research explores runtime detection of microarchitectural attacks that exploit hardware features such as speculative execution, cache hierarchies, and branch prediction. I focus on detection mechanisms that can operate on existing systems, particularly those that cannot
-    easily adopt new hardware or invasive software defenses.
+    My research focuses on the intersection of hardware security and machine learning, specifically targeting the runtime detection of microarchitectural attacks like <strong>Spectre v1/v2</strong> and <strong>Prime+Probe</strong>. I aim to build energy-aware secure systems that detect threats at the hardware level without the massive overhead of traditional software mitigations.
   </p>
 
-  <h3>Research threads</h3>
+  <h3>Key Thrusts</h3>
 
   <ul>
     <li>
-      <strong>Runtime detection of transient execution attacks</strong><br />
-      Leveraging hardware performance counters to identify malicious behavior that has bypassed traditional mitigations.
+      <strong>Microarchitectural Attack Detection</strong><br />
+      Using Hardware Performance Counters (HPCs) to identify anomalous execution footprints caused by transient execution and cache side-channel attacks across different architectures (Intel, ARM, AMD).
     </li>
 
     <li>
-      <strong>Performance counter semantics across architectures</strong><br />
-      Understanding how counter behavior differs across Intel and ARM platforms and how these differences affect detection reliability.
+      <strong>Advanced AI Models for Security</strong><br />
+      Developing robust, lightweight ML pipelines for attack detection. A core part of my work involves using a <strong>Hybrid Source-Free Domain Adaptation (SHOT) based LSTM + XGBoost classification head</strong> to maintain high detection accuracy even in noisy, real-world environments.
     </li>
 
     <li>
-      <strong>Data-driven detection pipelines</strong><br />
-      Designing feature representations and machine learning models that operate on noisy, low-level hardware measurements.
+      <strong>Open Data & Benchmarking</strong><br />
+      Addressing the lack of standardized data in hardware security research. I compiled and open-sourced the <a href="https://ieee-dataport.org/documents/microarchitectural-attack-detection-dataset-spectre-v1-spectre-v2-and-benign-workloads" target="_blank" rel="noopener noreferrer">Microarchitectural Attack Detection Dataset</a> on IEEE DataPort to help the community train and validate defenses against modern hardware exploits.
     </li>
   </ul>
-
-  <p>
-    These research threads are supported by the publications and projects described in the other sections of this Work area.
-  </p>
 </WorkLayout>

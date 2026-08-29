@@ -5,6 +5,33 @@ import "../../styles/projects.css";
 // Hardcoded featured projects
 const featuredProjects = [
   {
+    name: "mdme-framework",
+    description: "A multidimensional framework for automated microarchitectural evaluation and high-resolution Hardware Performance Counter (HPC) dataset generation.",
+    html_url: "https://github.com/jayakeshav/mdme-framework",
+    language: "Python",
+    updated_at: new Date().toISOString(),
+    featured: true,
+    starred: true
+  },
+  {
+    name: "RT-MAD",
+    description: "An end-to-end client-server system for real-time microarchitectural side-channel attack (Spectre v1/v2) detection using Hardware Performance Counters and ML inference.",
+    html_url: "https://github.com/jayakeshav/RT-MAD",
+    language: "Python",
+    updated_at: new Date().toISOString(),
+    featured: true,
+    starred: true
+  },
+  {
+    name: "vizlab",
+    description: "Performance signal explorer for hardware counter time-series data, combining a FastAPI backend with a Streamlit frontend for interactive analysis. Explore single signals, compare runs, and build derived ratios with attack-region labeling and Plotly visualizations.",
+    html_url: "https://github.com/jayakeshav/vizlab",
+    language: "Python",
+    updated_at: new Date().toISOString(),
+    featured: true,
+    starred: true
+  },
+  {
     name: "ML Model Evaluator",
     description: "Lightweight Feature-Fusion Architecture for Tabular Classification. Implements a Dual-Path Neural Network designed for tabular classification tasks where both absolute counts and ratio-based features are important. The architecture separates these two feature types into two experts and fuses them using unidirectional context transfer.",
     html_url: "https://github.com/jayakeshav/ml_model_evaluator",
@@ -56,14 +83,6 @@ const featuredProjects = [
     name: "Japanese-Reader",
     description: "A Streamlit-based interface for reading Japanese text with Duolingo-style Romaji ruby annotations, line-by-line translation, and interactive Kanji tooltips. Optimized for iPad/mobile browsers via local network hosting.",
     html_url: "https://github.com/jayakeshav/Japanese-Reader",
-    language: "Python",
-    updated_at: new Date().toISOString(),
-    featured: true
-  },
-  {
-    name: "vizlab",
-    description: "Performance signal explorer for hardware counter time-series data, combining a FastAPI backend with a Streamlit frontend for interactive analysis. Explore single signals, compare runs, and build derived ratios with attack-region labeling and Plotly visualizations.",
-    html_url: "https://github.com/jayakeshav/vizlab",
     language: "Python",
     updated_at: new Date().toISOString(),
     featured: true
@@ -125,9 +144,13 @@ current="projects">
       <div class="featured-project-item">
         <div class="project-title">
           {project.html_url === "NA" ? (
-            <span>{project.name}</span>
+            <span>
+              {project.starred && <span class="project-star">★ </span>}
+              {project.name}
+            </span>
           ) : (
             <a href={project.html_url} target="_blank">
+              {project.starred && <span class="project-star">★ </span>}
               {project.name}
             </a>
           )}
